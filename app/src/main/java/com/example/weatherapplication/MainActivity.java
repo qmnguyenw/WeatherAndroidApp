@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     EditText inputAddressText;
     Button submitAddressBtn, moreDateBtn;
     TextView addressCityText, addressCountryText,
-            dateText, temperatureText, statusText, humidityText, windText, cloudText;
+            dateText, temperatureText, statusText, humidityText, windText, cloudText, realTempText;
     ImageView weatherIcon;
 
     @Override
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         addressCountryText = (TextView)findViewById(R.id.addressCountryText);
         dateText = (TextView)findViewById(R.id.dateText);
         temperatureText = (TextView)findViewById(R.id.temperatureText);
+        realTempText = (TextView)findViewById(R.id.realTempText);
         statusText = (TextView)findViewById(R.id.statusText);
         humidityText = (TextView)findViewById(R.id.humidityText);
         windText = (TextView)findViewById(R.id.windText);
@@ -71,19 +72,54 @@ public class MainActivity extends AppCompatActivity {
                             String dateInfo = jsonObject.getString("dt");
                             long l = Long.valueOf(dateInfo);
                             Date dateParse = new Date(l*1000L);
-                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE yyyy-MM-dd HH-mm-ss");
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE yyyy-MMM-dd HH:mm:ss");
                             String date = simpleDateFormat.format(dateParse);
                             dateText.setText(date);
 
-                            String nameInfo = jsonObject.getString("name");
-                            addressCityText.setText(nameInfo);
+                            String city = jsonObject.getString("name");
+//                            addressCityText.setText(city);
 
+                            // 1st way to get data lower-level json
                             JSONArray jsonArrayWeather = jsonObject.getJSONArray("weather");
                             JSONObject jsonObjectWeather = jsonArrayWeather.getJSONObject(0);
 
-                            String status = jsonObjectWeather.getString("main");
                             String icon = jsonObjectWeather.getString("icon");
-                            Picasso.with(MainActivity.this).load("" + icon);
+                            Picasso.with(MainActivity.this).load("http://openweathermap.org/img/wn/" + icon + "@2x.png").into(weatherIcon);
+
+                            String status = jsonObjectWeather.getString("description"); // "main" if want show shorter status
+                            // TODO: uppercase the first character in each word
+                            statusText.setText(status);
+
+                            // 2nd way to get data lower-level json
+                            JSONObject jsonObjectMain = jsonObject.getJSONObject("main");
+
+                            String temp = jsonObjectMain.getString("temp");
+                            Double a = Double.valueOf(temp);
+                            String temperature = String.valueOf(a.intValue());
+                            temperatureText.setText(temperature + "°C");
+
+                            String tempLike = jsonObjectMain.getString("feels_like");
+                            Double b = Double.valueOf(tempLike);
+                            String feelsLike = String.valueOf(b.intValue());
+                            realTempText.setText("Feels Like " + feelsLike + "°C");
+
+                            String humidity = jsonObjectMain.getString("humidity");
+                            humidityText.setText(humidity + "%");
+
+                            JSONObject jsonObjectWind = jsonObject.getJSONObject("wind");
+                            String wind = jsonObjectWind.getString("speed");
+                            windText.setText(wind + " m/s");
+
+                            JSONObject jsonObjectCloud = jsonObject.getJSONObject("clouds");
+                            String cloud = jsonObjectCloud.getString("all");
+                            cloudText.setText(cloud + "%");
+
+                            JSONObject jsonObjectSys = jsonObject.getJSONObject("sys");
+                            String country = jsonObjectSys.getString("country");
+//                            addressCountryText.setText(country);
+                            addressCityText.setText(city + ", " + country);
+                            addressCountryText.setText("");
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

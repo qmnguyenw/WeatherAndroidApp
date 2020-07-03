@@ -47,7 +47,7 @@
             android:id="@+id/addressCityText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ten_thanh_pho"
+            android:text="City"
             android:layout_gravity="center"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
-            android:text="@string/ten_nuoc"
+            android:text="Country"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
-            android:text="31°C Nhiet do"
+            android:text="31°C"
             android:textSize="50sp"
             android:textStyle="normal" />
 
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
-            android:text="Cloudy Trang thai"
+            android:text="Cloudy"
             android:textSize="25sp"
             android:textStyle="bold" />
 
