@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WeatherApplication</string>
+    <string name="address">Address</string>
+    <string name="submit">Submit</string>
+    <string name="ten_thanh_pho">Ten Thanh Pho</string>
+    <string name="ten_nuoc">Ten Nuoc</string>
+    <string name="weather_icon">Weather Icon</string>
+</resources>
