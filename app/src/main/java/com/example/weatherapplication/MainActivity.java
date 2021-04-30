@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         locateItems();
-
+        getCurrentWeatherData("hanoi");
     }
 
     private void locateItems() {
@@ -72,8 +73,14 @@ public class MainActivity extends AppCompatActivity {
                             String dateInfo = jsonObject.getString("dt");
                             long l = Long.valueOf(dateInfo);
                             Date dateParse = new Date(l*1000L);
-                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE yyyy-MMM-dd HH:mm:ss");
+//                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE yyyy-MMM-dd HH:mm:ss"); // Saturday 2020-Jul-04 13:33:01
+//                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, d MMM yyy"); // Sat, 4 Jul 2020
+//                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyy"); // Sat, 04 Jul 2020
+//                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US); // Sat, 04 Jul 2020
+
+                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy", new Locale("vi", "VN"));
                             String date = simpleDateFormat.format(dateParse);
+//                            Log.i("date", date);
                             dateText.setText(date);
 
                             String city = jsonObject.getString("name");
@@ -119,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
 //                            addressCountryText.setText(country);
                             addressCityText.setText(city + ", " + country);
                             addressCountryText.setText("");
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();

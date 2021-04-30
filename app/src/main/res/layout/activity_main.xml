@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/bg6"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -47,11 +47,13 @@
             android:id="@+id/addressCityText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="City"
             android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="City"
+            android:textColor="@android:color/white"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_marginTop="2dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/addressCountryText"
@@ -59,7 +61,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="Country"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -69,14 +73,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="date"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/weatherIcon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:contentDescription="@string/weather_icon" />
@@ -87,7 +93,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="31°C"
+            android:textColor="@android:color/white"
             android:textSize="50sp"
             android:textStyle="normal" />
 
@@ -97,7 +105,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="Cloudy"
+            android:textColor="@android:color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -107,7 +117,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="Feels Like 35°C"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -130,12 +142,15 @@
                     android:layout_height="60dp"
                     android:src="@drawable/humidity"
                     android:scaleType="fitXY"/>
+
                 <TextView
                     android:id="@+id/humidityText"
-                    android:text="Humidity"
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Humidity"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,12 +164,15 @@
                     android:layout_height="60dp"
                     android:src="@drawable/windy"
                     android:scaleType="fitXY"/>
+
                 <TextView
                     android:id="@+id/windText"
-                    android:text="Wind"
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Wind"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -168,12 +186,15 @@
                     android:layout_height="60dp"
                     android:src="@drawable/cloud"
                     android:scaleType="fitXY"/>
+
                 <TextView
                     android:id="@+id/cloudText"
-                    android:text="Cloud"
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Cloud"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>
